@@ -1,23 +1,23 @@
 <template lang="html">
   <div class="character-list" v-if="characters.length">
-    <character-list-item
+    <character-detail
     v-for="(character, index) in characters"
     :character="character"
     :key="index"
     >
-  </character-list-item>
+  </character-detail>
 
   </div>
 
 </template>
 
 <script>
-import CharacterListItem from "@/components/CharacterListItem";
+import CharacterDetail from "@/components/CharacterDetail";
 export default {
-  name: "character-list",
+  name: "character-detail",
   props: ["characters"],
   components: {
-    "character-list-item": CharacterListItem
+    "character-detail": CharacterDetail
   }
 };
 </script>

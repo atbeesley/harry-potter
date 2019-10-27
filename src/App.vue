@@ -6,7 +6,7 @@
 
 <script>
 import { eventBus } from './main.js';
-import CharacterListList from './components/CharacterList.vue';
+import CharacterDetail from './components/CharacterDetail.vue';
 
 export default {
   name: 'app',
@@ -19,14 +19,14 @@ export default {
   mounted(){
     fetch('http://hp-api.herokuapp.com/api/characters')
     .then(res => res.json())
-    .then(munros => this.characters = characters)
+    .then(characters => this.characters = characters)
 
-    eventBus.$on('character-selected', (munro) => {
-      console.log('within $on', character);
+    eventBus.$on('character-selected', (character) => {
+      this.selectedCharacter = character
     })
   },
   components: {
-    "characters-list": CharacterList
+    "character": Character
   }
 }
 
