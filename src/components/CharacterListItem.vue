@@ -17,9 +17,6 @@ export default {
     displayInfo: function () {
       eventBus.$emit("character-selected", this.character);
     },
-    addFavourite: function () {
-      eventBus.$emit("favourite-added", this.character);
-    }
   }
 };
 </script>

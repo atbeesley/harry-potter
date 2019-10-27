@@ -5,14 +5,31 @@
 </template>
 
 <script>
-import { eventBus } from "@/main.js";
+import { eventBus } from './main.js';
+import CharacterListList from './components/CharacterList.vue';
 
 export default {
   name: 'app',
+  data(){
+    return {
+      characters: [],
+      selectedCharacter: null
+    };
+  },
+  mounted(){
+    fetch('http://hp-api.herokuapp.com/api/characters')
+    .then(res => res.json())
+    .then(munros => this.characters = characters)
+
+    eventBus.$on('character-selected', (munro) => {
+      console.log('within $on', character);
+    })
+  },
   components: {
-    HelloWorld
+    "characters-list": CharacterList
   }
 }
+
 </script>
 
 <style>
